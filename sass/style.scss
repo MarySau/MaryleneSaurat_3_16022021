@@ -273,14 +273,23 @@ input::placeholder
     margin: 10px;
     width: 10%;
     text-align: center;
+    &:hover
+    {   content: "\f004";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: bold;  
+        background: -webkit-linear-gradient(90deg, $secondaire, $primaire);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation-name: remplissage;
+        animation-duration: 3s;
+    }
 }
 
-.fa-heart:hover
-{   content: "\f004";
-    color: white;
-    font-family: 'Font Awesome 5 Free';
-    font-weight: bold;    
-}
+@-webkit-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-moz-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-o-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+
 
 /*Description*/
 

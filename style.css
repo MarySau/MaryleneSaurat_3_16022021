@@ -244,14 +244,49 @@ input::placeholder {
   width: 10%;
   text-align: center;
 }
-
-.fa-heart:hover {
+.coeur:hover {
   content: "";
-  color: white;
   font-family: "Font Awesome 5 Free";
   font-weight: bold;
+  background: -webkit-linear-gradient(90deg, #9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name: remplissage;
+  animation-duration: 3s;
 }
 
+@-webkit-keyframes remplissage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes remplissage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes remplissage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes remplissage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*Description*/
 .description-texte {
   position: relative;
