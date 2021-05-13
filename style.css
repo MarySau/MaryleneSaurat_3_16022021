@@ -11,9 +11,12 @@
 body {
   font-family: "Roboto-Regular", "serif";
   color: black;
-  width: 100%;
-  display: flex;
   margin: auto;
+}
+
+body, .global {
+  width: 100%;
+  position: absolute;
 }
 
 .spinner {
@@ -23,8 +26,10 @@ body {
   position: fixed;
   display: flex;
   align-items: center;
+  justify-content: center;
   opacity: 0.9;
   z-index: 2;
+  animation: disparition 2s forwards 2s;
 }
 
 .lds-dual-ring {
@@ -33,6 +38,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  animation: disparition 2s forwards 2s;
 }
 
 .lds-dual-ring:after {
@@ -44,7 +50,7 @@ body {
   border-radius: 50%;
   border: 6px solid #9356DC;
   border-color: #9356DC transparent #9356DC transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  animation: lds-dual-ring 3s linear infinite;
 }
 
 @keyframes lds-dual-ring {
@@ -55,11 +61,16 @@ body {
     transform: rotate(360deg);
   }
 }
-.global {
-  width: 800px;
-  margin: auto;
+@keyframes disparition {
+  0% {
+    opacity: 0.9;
+    z-index: 2;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
 }
-
 h1, h4 {
   font-family: "Shrikhand-Regular", "serif";
   margin: 0px;
@@ -367,10 +378,10 @@ input::placeholder {
 .menu-indiv {
   max-width: 100%;
   border-radius: 20px;
-  padding-bottom: 10px;
   margin-bottom: 20px;
   box-shadow: 0px 5px 10px gray;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   animation: fadein 2s;
@@ -462,28 +473,40 @@ input::placeholder {
   animation-delay: 0.9s;
 }
 
-.tarif p {
+.tarif {
   font-weight: bold;
   width: 10%;
+  min-height: 100%;
   justify-items: center;
   display: grid;
   align-items: end;
   line-height: 50%;
   margin-right: 10px;
-}
-.tarif p:hover {
-  transition-duration: 1s;
-  transform: translateX(-100%);
+  z-index: 1;
 }
 
-/*.tarif:hover
-{   transition-duration: 1s;
-    transform: translateX(-100%);
-}*/
+.coche {
+  width: 10%;
+  min-height: 100%;
+  z-index: 0;
+}
+
+.fa-check-circle {
+  width: 100%;
+  min-height: 100%;
+  background-color: #99E2D0;
+  border-radius: 0px 20px 20px 0px;
+  color: white;
+  font-size: xx-large;
+}
+
 .plat {
   line-height: 50%;
   padding-left: 10px;
-  width: 80%;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bouton {
@@ -491,11 +514,6 @@ input::placeholder {
 }
 
 @media screen and (max-width: 800px) {
-  body, .global {
-    max-width: 100%;
-    position: absolute;
-  }
-
   .menu-indiv {
     font-size: small;
   }
