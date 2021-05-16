@@ -384,8 +384,9 @@ input::placeholder {
   box-shadow: 0px 5px 10px gray;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  overflow: hidden;
   animation: fadein 2s;
   -moz-animation: fadein 2s;
   /* Firefox */
@@ -462,16 +463,18 @@ input::placeholder {
   width: 20%;
   min-height: 100%;
   text-align: center;
-  /*justify-items: center;
   display: grid;
   align-items: end;
-  line-height: 50%;
-  margin-right: 10px;*/
   z-index: 1;
   background-color: #f7f7f7;
   border-radius: 0px 20px 20px 0px;
+  position: relative;
+  right: -20%;
 }
 .tarif:hover {
+  animation: decalage 2s forwards;
+}
+.tarif:hover + .coche {
   animation: decalage 2s forwards;
 }
 
@@ -507,58 +510,75 @@ input::placeholder {
     translate: -100%;
   }
 }
-.tarif::after {
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.coche {
   width: 20%;
   min-height: 100%;
-  background-color: #99E2D0;
-  border-radius: 0px 20px 20px 0px;
   z-index: 0;
+  /*content: "\f058";
+  font-family: 'Font Awesome 5 Free'; */
+  color: white;
+  background: #99E2D0;
+  border-radius: 0px 20px 20px 0px;
+  font-size: xx-large;
+  position: relative;
+  right: -20%;
+  text-align: center;
+  display: grid;
+  align-items: center;
 }
 
-/*.tarif::after
-{   content: "\f058";
-    font-family: 'Font Awesome 5 Free'; 
-    color: white;
-    background: $tertiaire;
-    border-radius: 0px 20px 20px 0px;
-    font-size: xx-large;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-}*/
-/*.coche
-{   width: 20%;
-    min-height: 100%;
-    z-index: 0;
-    background-color: $tertiaire;
-    border-radius: 0px 20px 20px 0px;
-}
-
-.fa-check-circle
-{   color: white;
-    font-size: xx-large;
-    position: relative;
-    top: 25%;
-    left: 25%;
-}*/
 .plat {
   line-height: 50%;
   padding-left: 10px;
   width: 60%;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /*overflow: hidden;
+  text-overflow: ellipsis;*/
 }
 
 .bouton {
   text-align: center;
 }
 
-/*@media screen and (min-width: 800px) and (max-width: 1024px)
-{   .fonctionnement ol li 
-    {   font-size: small;
-    }
-}*/
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  body, .global {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .presentation, .fonctionnement {
     padding: 40px 20px;

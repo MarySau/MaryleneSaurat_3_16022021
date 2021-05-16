@@ -378,8 +378,9 @@ input::placeholder
     box-shadow: $ombre-simple;  
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    overflow: hidden;
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari et Chrome */
@@ -420,67 +421,55 @@ input::placeholder
     width: 20%;
     min-height: 100%;
     text-align: center;
-    /*justify-items: center;
     display: grid;
     align-items: end;
-    line-height: 50%;
-    margin-right: 10px;*/
     z-index: 1;
     background-color: $gris-clair;
     border-radius: 0px 20px 20px 0px;
+    position: relative;
+    right: -20%;
     &:hover
     {   animation: decalage 2s forwards;
     }
-} 
+    &:hover + .coche
+    {   animation: decalage 2s forwards;
+    }
+}
 
 @-webkit-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
 @-moz-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
 @-o-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
 @keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
 
-.tarif::after
-{   width: 20%;
-    min-height: 100%;  
-    background-color: $tertiaire;
-    border-radius: 0px 20px 20px 0px;
-    z-index: 0;
-}
+@-webkit-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@-moz-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@-o-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/*.tarif::after
-{   content: "\f058";
-    font-family: 'Font Awesome 5 Free'; 
+.coche
+{   width: 20%;
+    min-height: 100%;
+    z-index: 0;
+    /*content: "\f058";
+    font-family: 'Font Awesome 5 Free'; */
     color: white;
     background: $tertiaire;
     border-radius: 0px 20px 20px 0px;
     font-size: xx-large;
     position: relative;
-    overflow: hidden;
-    z-index: 0;
-}*/
-
-/*.coche
-{   width: 20%;
-    min-height: 100%;
-    z-index: 0;
-    background-color: $tertiaire;
-    border-radius: 0px 20px 20px 0px;
+    right: -20%;
+    text-align: center;
+    display: grid;
+    align-items: center;
 }
-
-.fa-check-circle
-{   color: white;
-    font-size: xx-large;
-    position: relative;
-    top: 25%;
-    left: 25%;
-}*/
 
 .plat
 {   line-height: 50%;
     padding-left: 10px;
     width: 60%;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*overflow: hidden;
+    text-overflow: ellipsis;*/
 }
 
 .bouton
@@ -491,11 +480,13 @@ input::placeholder
 {   
 }
 
-/*@media screen and (min-width: 800px) and (max-width: 1024px)
-{   .fonctionnement ol li 
-    {   font-size: small;
+@media screen and (min-width: 800px) and (max-width: 1024px)
+{   body ,.global
+    {   max-width: 800px;
+        position: relative;
+        margin: auto;
     }
-}*/
+}
 
 @media screen and (min-width: 1024px)
 {   
