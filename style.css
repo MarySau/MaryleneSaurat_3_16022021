@@ -477,6 +477,14 @@ input::placeholder {
 .tarif:hover + .coche {
   animation: decalage 2s forwards;
 }
+.tarif:hover + .coche i {
+  animation: rotation 2s forwards 0.5s;
+}
+.tarif:hover .plat {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 @-webkit-keyframes decalage {
   0% {
@@ -551,7 +559,7 @@ input::placeholder {
   color: white;
   background: #99E2D0;
   border-radius: 0px 20px 20px 0px;
-  font-size: xx-large;
+  font-size: x-large;
   position: relative;
   right: -20%;
   text-align: center;
