@@ -1,3 +1,5 @@
+/*POLICES*/
+
 @font-face 
 {   font-family: 'Roboto-Regular';
     src: url('police/Roboto-Regular.eot') format('eot'),
@@ -14,6 +16,8 @@
          url('police/Shrikhand-Regular.svg') format('svg');
 }
 
+/*VARIABLES*/
+
 $primaire: #9356DC;
 $secondaire: #FF79DA;
 $tertiaire: #99E2D0;
@@ -29,7 +33,40 @@ $padding-large: 40px 20px;
 $ombre-simple: 0px 5px 10px gray;
 $ombre-large: 0px 5px 20px black;
 
-/*General*/
+/*KEYFRAMES*/
+
+@-webkit-keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }     
+@-moz-keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }     
+@-o-keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }     
+@keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }     
+
+@-webkit-keyframes disparition { 0% { opacity: 0.9; z-index: 2; } 100% { opacity: 0; z-index: 0; } } 
+@-moz-keyframes disparition { 0% { opacity: 0.9; z-index: 2; } 100% { opacity: 0; z-index: 0; } } 
+@-o-keyframes disparition { 0% { opacity: 0.9; z-index: 2; } 100% { opacity: 0; z-index: 0; } } 
+@keyframes disparition { 0% { opacity: 0.9; z-index: 2; } 100% { opacity: 0; z-index: 0; } } 
+
+@-webkit-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-moz-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-o-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+@-webkit-keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
+@-moz-keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
+@-o-keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
+@keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
+
+@-webkit-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@-moz-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@-o-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+@-webkit-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@-moz-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@-o-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+/*GENERAL*/
 
 body
 {   font-family: $police-texte;
@@ -42,47 +79,6 @@ body ,.global
     position: absolute;
 }
 
-.spinner
-{   width: 100%;
-    height: 100%;
-    background-color: $gris-clair;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.9;
-    z-index: 2;
-    animation: disparition 2s forwards 2s;
-}
-.lds-dual-ring 
-{   width: 80px;
-    height: 80px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    animation: disparition 2s forwards 2s;
-}
-.lds-dual-ring:after 
-{   content: " ";
-    display: block;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border-radius: 50%;
-    border: 6px solid $primaire;
-    border-color: $primaire transparent $primaire transparent;
-    animation: lds-dual-ring 3s linear infinite;
-}
-
-@keyframes lds-dual-ring 
-{   0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}     
-@keyframes disparition
-{   0% { opacity: 0.9; z-index: 2; }
-    100% { opacity: 0; z-index: 0; }
-} 
-
 h1 ,h4
 {   font-family: $police-titre;
     margin: 0px;
@@ -90,6 +86,27 @@ h1 ,h4
 
 a
 {   color: black;
+}
+
+.coeur
+{   font-size: xx-large;
+    position:absolute;
+    top:0;
+    right:0;
+    padding: 10px;
+    margin: 10px;
+    width: 10%;
+    text-align: center;
+    &:hover
+    {   content: "\f004";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: bold;  
+        background: -webkit-linear-gradient(90deg, $secondaire, $primaire);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation-name: remplissage;
+        animation-duration: 3s;
+    }
 }
 
 /*Header*/
@@ -133,6 +150,42 @@ footer li
 footer a
 {   text-decoration: none;
     color: white;
+}
+
+/*ACCUEIL*/
+
+/*Loading spinner*/
+
+.spinner
+{   width: 100%;
+    height: 100%;
+    background-color: $gris-clair;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    z-index: 2;
+    animation: disparition 2s forwards 2s;
+}
+.lds-dual-ring 
+{   width: 80px;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: disparition 2s forwards 2s;
+}
+.lds-dual-ring:after 
+{   content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid $primaire;
+    border-color: $primaire transparent $primaire transparent;
+    animation: lds-dual-ring 3s linear infinite;
 }
 
 /*Localisation*/
@@ -303,32 +356,7 @@ input::placeholder
     width: 100%;
 }
 
-.coeur
-{   font-size: xx-large;
-    position:absolute;
-    top:0;
-    right:0;
-    padding: 10px;
-    margin: 10px;
-    width: 10%;
-    text-align: center;
-    &:hover
-    {   content: "\f004";
-        font-family: 'Font Awesome 5 Free';
-        font-weight: bold;  
-        background: -webkit-linear-gradient(90deg, $secondaire, $primaire);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation-name: remplissage;
-        animation-duration: 3s;
-    }
-}
-
-@-webkit-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
-@-moz-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
-@-o-keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes remplissage { 0% { opacity: 0; } 100% { opacity: 1; } }
-
+/*MENUS*/
 
 /*Description*/
 
@@ -347,9 +375,9 @@ input::placeholder
 
 .description img
 {   width: 100%;
-    max-height: 400px;
+    max-height: 200px;
     object-fit: cover;
-    object-position: bottom;
+    object-position: center;
 }
 
 /*Menus*/
@@ -387,38 +415,14 @@ input::placeholder
     -o-animation: fadein 2s; /* Opera */
 }
 
-@-webkit-keyframes fadein 
-{   0% { opacity: 0; transform: translateY(20px);} 
-    100% { opacity: 1; transform: translateY(0px);} 
-}
-@-moz-keyframes fadein 
-{   0% { opacity: 0; transform: translateY(20px);} 
-    100% { opacity: 1; transform: translateY(0px);} 
-}
-@-o-keyframes fadein 
-{   0% { opacity: 0; transform: translateY(20px);} 
-    100% { opacity: 1; transform: translateY(0px);} 
-}
-@keyframes fadein 
-{   0% { opacity: 0; transform: translateY(20px);} 
-    100% { opacity: 1; transform: translateY(0px);} 
-}
-
 .menu-indiv:nth-of-type(1) { animation-delay: 0s;}
 .menu-indiv:nth-of-type(2) { animation-delay: 0.1s;}
 .menu-indiv:nth-of-type(3) { animation-delay: 0.2s;}
 .menu-indiv:nth-of-type(4) { animation-delay: 0.3s;}
-/*.menu-indiv:nth-of-type(5) { animation-delay: 0.4s;}
-.menu-indiv:nth-of-type(6) { animation-delay: 0.5s;}
-.menu-indiv:nth-of-type(7) { animation-delay: 0.6s;}
-.menu-indiv:nth-of-type(8) { animation-delay: 0.7s;}
-.menu-indiv:nth-of-type(9) { animation-delay: 0.8s;}
-.menu-indiv:nth-of-type(10) { animation-delay: 0.9s;}*/
-
 
 .tarif
 {   font-weight: bold;
-    width: 20%;
+    min-width: 20%;
     min-height: 100%;
     text-align: center;
     display: grid;
@@ -427,9 +431,10 @@ input::placeholder
     background-color: $gris-clair;
     border-radius: 0px 20px 20px 0px;
     position: relative;
-    right: -20%;
+    /*right: -20%;*/
     &:hover
     {   animation: decalage 2s forwards;
+        width: 20%;
     }
     &:hover + .coche
     {   animation: decalage 2s forwards;
@@ -437,56 +442,42 @@ input::placeholder
     &:hover + .coche i
     {   animation: rotation 2s forwards 0.5s;
     }
-    &:hover .plat
-    {   white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 }
 
-@-webkit-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
-@-moz-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
-@-o-keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
-@keyframes decalage { 0% { translateX: 0; } 100% { translate: -100%; } }
-
-@-webkit-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@-moz-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@-o-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
 .coche
-{   width: 20%;
+{   min-width: 20%;
     min-height: 100%;
     z-index: 0;
-    /*content: "\f058";
-    font-family: 'Font Awesome 5 Free'; */
     color: white;
     background: $tertiaire;
     border-radius: 0px 20px 20px 0px;
     font-size: x-large;
     position: relative;
-    right: -20%;
+    /*right: -20%;*/
     text-align: center;
     display: grid;
     align-items: center;
 }
 
 .plat
-{   line-height: 50%;
+{   /*line-height: 50%;*/
     padding-left: 10px;
-    width: 60%;
+    min-width: 80%;
     white-space: nowrap;
-    /*overflow: hidden;
-    text-overflow: ellipsis;*/
+}
+
+.plat p ,.plat h3
+{   white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*line-height: 100%;*/
 }
 
 .bouton
 {   text-align: center;
 }
 
-@media screen and (max-width: 800px)
-{   
-}
+/*MEDIA QUERIES*/
 
 @media screen and (min-width: 800px) and (max-width: 1024px)
 {   body ,.global
@@ -497,8 +488,7 @@ input::placeholder
 }
 
 @media screen and (min-width: 1024px)
-{   
-    .presentation ,.fonctionnement
+{   .presentation ,.fonctionnement
     {   padding: 40px 20px;
     }
     .button 
@@ -542,6 +532,9 @@ input::placeholder
     {   width: 90%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .description img
+    {   max-height: 300px;
     }
     .menu
     {   width: 90%;
