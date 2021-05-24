@@ -16,6 +16,7 @@
          url('police/Shrikhand-Regular.svg') format('svg');
 }
 
+
 /*VARIABLES*/
 
 $primaire: #9356DC;
@@ -32,6 +33,7 @@ $padding-large: 40px 20px;
 
 $ombre-simple: 0px 5px 10px gray;
 $ombre-large: 0px 5px 20px black;
+
 
 /*KEYFRAMES*/
 
@@ -55,20 +57,21 @@ $ombre-large: 0px 5px 20px black;
 @-o-keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
 @keyframes fadein { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0px);} }
 
-@-webkit-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+/*@-webkit-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 @-moz-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 @-o-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-@keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }*/
 
 @-webkit-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 @-moz-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 @-o-keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-@-webkit-keyframes largeur { 0% { max-width: 80%; } 100% { max-width: 60%; } }
-@-moz-keyframes largeur { 0% { max-width: 80%; } 100% { max-width: 60%; } }
-@-o-keyframes largeur { 0% { max-width: 80%; } 100% { max-width: 60%; } }
-@keyframes largeur { 0% { max-width: 80%; } 100% { max-width: 60%; } }
+@-webkit-keyframes largeur { 0% { min-width: 80%; } 100% { min-width: 60%; } }
+@-moz-keyframes largeur { 0% { min-width: 80%; } 100% { min-width: 60%; } }
+@-o-keyframes largeur { 0% { min-width: 80%; } 100% { min-width: 60%; } }
+@keyframes largeur { 0% { min-width: 80%; } 100% { min-width: 60%; } }
+
 
 /*GENERAL*/
 
@@ -100,7 +103,7 @@ a
     padding: 10px;
     margin: 10px;
     width: 10%;
-    text-align: center;
+    text-align: end;
     &:hover
     {   content: "\f004";
         font-family: 'Font Awesome 5 Free';
@@ -160,6 +163,7 @@ footer a
 {   text-decoration: none;
     color: white;
 }
+
 
 /*ACCUEIL*/
 
@@ -365,6 +369,7 @@ input::placeholder
     width: 100%;
 }
 
+
 /*MENUS*/
 
 /*Description*/
@@ -424,9 +429,15 @@ input::placeholder
     justify-content: space-between;
     overflow: hidden;
     animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari et Chrome */
-    -o-animation: fadein 2s; /* Opera */
+    -moz-animation: fadein 2s; 
+    -webkit-animation: fadein 2s; 
+    -o-animation: fadein 2s; 
+    &:hover > .plat
+    {   animation: largeur 2s forwards; 
+    }
+    &:hover > .coche i
+    {   animation: rotation 2s forwards 0.5s;
+    }
 }
 
 .menu-indiv:nth-of-type(1) { animation-delay: 0s;}
@@ -446,7 +457,7 @@ input::placeholder
     border-radius: 0px 20px 20px 0px;
     position: relative;
     /*right: -20%;*/
-    &:hover
+    /*&:hover
     {   animation: decalage 2s forwards;
         width: 20%;
     }
@@ -455,10 +466,7 @@ input::placeholder
     }
     &:hover + .coche i
     {   animation: rotation 2s forwards 0.5s;
-    }
-    &:hover 
-    {   animation: decalage 2s forwards;
-    }
+    }*/
 }
 
 .coche
@@ -470,20 +478,27 @@ input::placeholder
     border-radius: 0px 20px 20px 0px;
     font-size: x-large;
     position: relative;
-    /*right: -20%;*/
     text-align: center;
     display: grid;
     align-items: center;
+    /*right: -20%;*/
 }
 
 .plat
-{   /*line-height: 50%;*/
-    padding-left: 10px;
+{   padding-left: 10px;
     min-width: 80%;
     white-space: nowrap;
+    /*line-height: 50%;*/
+    /*width: 80%;*/
+    /*&:hover
+    {   animation: largeur 2s forwards; 
+    }
+    &:hover ~ .coche i
+    {   animation: rotation 2s forwards 0.5s;
+    }*/
 }
 
-.plat p ,.plat h3
+.plat p ,.plat h4
 {   white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -493,6 +508,7 @@ input::placeholder
 .bouton
 {   text-align: center;
 }
+
 
 /*MEDIA QUERIES*/
 
