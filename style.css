@@ -218,6 +218,38 @@
     transform: rotate(360deg);
   }
 }
+@-webkit-keyframes largeur {
+  0% {
+    max-width: 80%;
+  }
+  100% {
+    max-width: 60%;
+  }
+}
+@-moz-keyframes largeur {
+  0% {
+    max-width: 80%;
+  }
+  100% {
+    max-width: 60%;
+  }
+}
+@-o-keyframes largeur {
+  0% {
+    max-width: 80%;
+  }
+  100% {
+    max-width: 60%;
+  }
+}
+@keyframes largeur {
+  0% {
+    max-width: 80%;
+  }
+  100% {
+    max-width: 60%;
+  }
+}
 /*GENERAL*/
 body {
   font-family: "Roboto-Regular", "serif";
@@ -230,7 +262,7 @@ body, .global {
   position: absolute;
 }
 
-h1, h4 {
+h1 {
   font-family: "Shrikhand-Regular", "serif";
   margin: 0px;
 }
@@ -281,6 +313,11 @@ footer {
   padding: 20px;
   color: white;
   background-color: black;
+}
+
+footer h4 {
+  font-family: "Shrikhand-Regular", "serif";
+  margin: 0px;
 }
 
 footer ul {
@@ -516,6 +553,11 @@ input::placeholder {
   justify-content: space-between;
 }
 
+.description-texte h2 {
+  font-family: "Shrikhand-Regular", "serif";
+  margin: 0px;
+}
+
 .description img {
   width: 100%;
   max-height: 200px;
@@ -530,7 +572,7 @@ input::placeholder {
   margin-top: -20px;
 }
 
-.menu h2 {
+.menu h3 {
   padding-top: 20px;
   font-size: medium;
   text-transform: uppercase;
@@ -598,6 +640,9 @@ input::placeholder {
 }
 .tarif:hover + .coche i {
   animation: rotation 2s forwards 0.5s;
+}
+.tarif:hover {
+  animation: decalage 2s forwards;
 }
 
 .coche {
