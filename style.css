@@ -10,6 +10,14 @@
 }
 /*VARIABLES*/
 /*KEYFRAMES*/
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @-webkit-keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -34,12 +42,14 @@
     transform: rotate(360deg);
   }
 }
-@keyframes lds-dual-ring {
+@keyframes disparition {
   0% {
-    transform: rotate(0deg);
+    opacity: 0.9;
+    z-index: 2;
   }
   100% {
-    transform: rotate(360deg);
+    opacity: 0;
+    z-index: 0;
   }
 }
 @-webkit-keyframes disparition {
@@ -72,14 +82,12 @@
     z-index: 0;
   }
 }
-@keyframes disparition {
+@keyframes remplissage {
   0% {
-    opacity: 0.9;
-    z-index: 2;
+    opacity: 0;
   }
   100% {
-    opacity: 0;
-    z-index: 0;
+    opacity: 1;
   }
 }
 @-webkit-keyframes remplissage {
@@ -106,12 +114,14 @@
     opacity: 1;
   }
 }
-@keyframes remplissage {
+@keyframes fadein {
   0% {
     opacity: 0;
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0px);
   }
 }
 @-webkit-keyframes fadein {
@@ -144,20 +154,14 @@
     transform: translateY(0px);
   }
 }
-@keyframes fadein {
+@keyframes rotation {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0px);
+    transform: rotate(360deg);
   }
 }
-/*@-webkit-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-@-moz-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-@-o-keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-@keyframes decalage { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }*/
 @-webkit-keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -182,12 +186,12 @@
     transform: rotate(360deg);
   }
 }
-@keyframes rotation {
+@keyframes largeur {
   0% {
-    transform: rotate(0deg);
+    min-width: 80%;
   }
   100% {
-    transform: rotate(360deg);
+    min-width: 60%;
   }
 }
 @-webkit-keyframes largeur {
@@ -207,14 +211,6 @@
   }
 }
 @-o-keyframes largeur {
-  0% {
-    min-width: 80%;
-  }
-  100% {
-    min-width: 60%;
-  }
-}
-@keyframes largeur {
   0% {
     min-width: 80%;
   }
@@ -357,7 +353,7 @@ footer a {
   max-width: 100%;
 }
 
-input {
+.localisation input {
   border: none;
   background-color: #ededed;
   font-size: large;
@@ -369,7 +365,7 @@ input {
 input::placeholder {
   color: black;
   opacity: 1;
-  width: 50%;
+  width: 100%;
   text-align: center;
   border: none;
 }
@@ -604,17 +600,6 @@ input::placeholder {
   background-color: #f7f7f7;
   border-radius: 0px 20px 20px 0px;
   position: relative;
-  /*right: -20%;*/
-  /*&:hover
-  {   animation: decalage 2s forwards;
-      width: 20%;
-  }
-  &:hover + .coche
-  {   animation: decalage 2s forwards;
-  }
-  &:hover + .coche i
-  {   animation: rotation 2s forwards 0.5s;
-  }*/
 }
 
 .coche {
@@ -629,28 +614,18 @@ input::placeholder {
   text-align: center;
   display: grid;
   align-items: center;
-  /*right: -20%;*/
 }
 
 .plat {
   padding-left: 10px;
   min-width: 80%;
   white-space: nowrap;
-  /*line-height: 50%;*/
-  /*width: 80%;*/
-  /*&:hover
-  {   animation: largeur 2s forwards; 
-  }
-  &:hover ~ .coche i
-  {   animation: rotation 2s forwards 0.5s;
-  }*/
 }
 
 .plat p, .plat h4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /*line-height: 100%;*/
 }
 
 .bouton {
@@ -659,10 +634,30 @@ input::placeholder {
 
 /*MEDIA QUERIES*/
 @media screen and (min-width: 800px) and (max-width: 1024px) {
-  body, .global {
+  footer h4 {
+    text-align: center;
+  }
+
+  footer ul {
+    text-align: center;
+  }
+
+  .description img {
+    max-height: 250px;
+  }
+
+  .description-texte {
     max-width: 800px;
-    position: relative;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .menu {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 1024px) {
